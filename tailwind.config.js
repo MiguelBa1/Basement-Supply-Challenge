@@ -16,9 +16,9 @@ module.exports = {
         'initial-black': '#1D1D1D',
         'final-gray': 'rgba(21, 21, 21, 0)'
       },
-      fontFamily: {
-        'basement': ['Basement Grotesque']
-      }
+      // fontFamily: {
+      //   'basement': 'Basement Grotesque'
+      // }
     },
   },
   variants: {
