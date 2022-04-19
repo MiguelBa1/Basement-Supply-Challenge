@@ -3,6 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      gridTemplateRows: {
+        cart: 'auto auto 1fr auto',
+      },
+      gridTemplateColumns: {
+        bottomCart: '1fr auto'
+      },
       animation: {
         marquee: 'marquee 20s linear infinite',
       },
