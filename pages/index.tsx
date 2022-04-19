@@ -1,21 +1,21 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import Navbar from "../components/Navbar.js";
-import Marquee from "../components/Marquee.js";
-import Product from "../components/Product.js";
+import Navbar from "../components/Navbar.jsx";
+import Marquee from "../components/Marquee.jsx";
+import Product from "../components/Product.jsx";
+import Cart from "../components/Cart.jsx";
 
 import header from "../public/header.svg";
 import footer from "../public/footer.svg";
-import shirt from "../public/products/shirt.png";
-import hoodie from "../public/products/hoodie.png";
-import cap from "../public/products/cap.png";
+import CartState from "../context/cart/CartState"
 
 import products from "../product/mock.json";
 
 const Home: NextPage = () => {
   return (
-    <>
+    <CartState>
       <header>
+        <Cart />
         <Navbar />
         <div className="flex justify-center my-2 mx-2">
           <Image alt="Basement supply" src={header} />
@@ -24,18 +24,22 @@ const Home: NextPage = () => {
       <Marquee />
       <div className="m-4 sm:flex gap-5 justify-between">
         {products.map(prod =>
-          <Product img={prod.img} name={prod.name} price={prod.price} />
+          <Product
+            key={prod._id}
+            _id={prod._id}
+            img={prod.img}
+            name={prod.name}
+            description={prod.description}
+            price={prod.price}
+          />
         )}
-        {/* <Product img={shirt} name="Black t-shirt" price={7.45} />
-        <Product img={hoodie} name="Black hoodie" price={13} />
-        <Product img={cap} name="Black cap" price={23} /> */}
       </div>
       <footer>
         <div className="flex justify-center my-3 mx-2">
           <Image alt="Wear everyday" src={footer} />
         </div>
       </footer>
-    </>
+    </CartState>
   );
 };
 
