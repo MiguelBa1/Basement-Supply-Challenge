@@ -1,30 +1,33 @@
-import type { AppProps } from "next/app";
+import type {AppProps} from "next/app";
 import Head from "next/head";
 
 import "../css/global.css";
 
-function App({ Component, pageProps }: AppProps) {
+function App({Component, pageProps}: AppProps) {
   return (
     <>
       <Head>
         {/* <!-- Primary Meta Tags --> */}
         <title>Basement Supply</title>
-        <meta name="title" content="Basement Supply" />
-        <meta name="description" content="Coding challenge for basement.studio." />
+        <meta content="Basement Supply" name="title" />
+        <meta content="Coding challenge for basement.studio." name="description" />
 
         {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prueba-nextjs.miguelbarrera4.repl.co/" />
-        <meta property="og:title" content="Basement Supply" />
-        <meta property="og:description" content="Coding challenge for basement.studio." />
-        <meta property="og:image" content="https://prueba-nextjs.miguelbarrera4.repl.co/og.png" />
+        <meta content="website" property="og:type" />
+        <meta content="https://prueba-nextjs.miguelbarrera4.repl.co/" property="og:url" />
+        <meta content="Basement Supply" property="og:title" />
+        <meta content="Coding challenge for basement.studio." property="og:description" />
+        <meta content="https://prueba-nextjs.miguelbarrera4.repl.co/og.png" property="og:image" />
 
         {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://prueba-nextjs.miguelbarrera4.repl.co/" />
-        <meta property="twitter:title" content="Basement Supply" />
-        <meta property="twitter:description" content="Coding challenge for basement.studio." />
-        <meta property="twitter:image" content="https://prueba-nextjs.miguelbarrera4.repl.co/og.png" />
+        <meta content="summary_large_image" property="twitter:card" />
+        <meta content="https://prueba-nextjs.miguelbarrera4.repl.co/" property="twitter:url" />
+        <meta content="Basement Supply" property="twitter:title" />
+        <meta content="Coding challenge for basement.studio." property="twitter:description" />
+        <meta
+          content="https://prueba-nextjs.miguelbarrera4.repl.co/og.png"
+          property="twitter:image"
+        />
       </Head>
       <Component {...pageProps} />
     </>

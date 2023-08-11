@@ -1,37 +1,43 @@
-import { useContext } from "react";
-import CartContext from "../context/cart/CartContext";
+import {useContext} from "react";
 import formatCurrency from "format-currency";
+
+import CartContext from "../context/cart/CartContext";
+
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { showCart, cartItems, showHideCart } = useContext(CartContext);
-  let opts = { format: "%s%v", symbol: "$" };
+  const {showCart, cartItems, showHideCart} = useContext(CartContext);
+  let opts = {format: "%s%v", symbol: "$"};
 
   const handleCheckout = () => {
-    cartItems.map(item => {
-      console.log(`Product: ${item.name}, price: $${item.price}, size: ${item.size}, quantity: ${item.qty}`)
-    })
+    cartItems.map((item) => {
+      console.log(
+        `Product: ${item.name}, price: $${item.price}, size: ${item.size}, quantity: ${item.qty}`,
+      );
+    });
     let total = formatCurrency(
-      cartItems.reduce((amount, item) => (item.price * item.qty) + amount, 0),
-      opts
-    )
-    console.log(`Total: ${total}`)
-  }
+      cartItems.reduce((amount, item) => item.price * item.qty + amount, 0),
+      opts,
+    );
+
+    console.log(`Total: ${total}`);
+  };
+
   return (
     <>
       {showCart && (
-        <div className='min-h-screen md:min-h-0 md:border p-5 grid grid-rows-cart md:fixed top-0 right-0 bg-black z-50'>
-          <div className="text-rigth flex justify-end mb-2" onClick={showHideCart}>
-          → CLOSE
+        <div className="top-0 right-0 z-50 grid min-h-screen p-5 bg-black md:min-h-0 md:border grid-rows-cart md:fixed">
+          <div className="flex justify-end mb-2 text-rigth" onClick={showHideCart}>
+            → CLOSE
           </div>
-          <div className="text-8xl text-center mb-2">
+          <div className="mb-2 text-center text-8xl">
             YOUR <span className="text-stroke-white text-stroke-2 text-fill-transparent">CART</span>
           </div>
           <div>
             {cartItems.length === 0 ? (
               <h4>Cart is Empty</h4>
             ) : (
-              <ul className='max-h-80 overflow-y-auto'>
+              <ul className="overflow-y-auto max-h-80">
                 {cartItems.map((item) => (
                   <CartItem key={item._id} item={item} />
                 ))}
@@ -39,19 +45,19 @@ const Cart = () => {
             )}
           </div>
           <div className="mt-2 md:grid grid-cols-bottomCart">
-            <div className='flex justify-between md:justify-start md:text-3xl'>
+            <div className="flex justify-between md:justify-start md:text-3xl">
               <div>TOTAL:</div>
-              <div >
+              <div>
                 {formatCurrency(
-                  cartItems.reduce((amount, item) => (item.price*item.qty) + amount, 0),
-                  opts
+                  cartItems.reduce((amount, item) => item.price * item.qty + amount, 0),
+                  opts,
                 )}
               </div>
             </div>
-            <div 
-              className="md:pt-0 pt-4 border-t md:border-0 cursor-pointer text-5xl md:text-3xl text-center text-stroke-white text-stroke-2 text-fill-transparent"
+            <div
+              className="pt-4 text-5xl text-center border-t cursor-pointer md:pt-0 md:border-0 md:text-3xl text-stroke-white text-stroke-2 text-fill-transparent"
               onClick={handleCheckout}
-              >
+            >
               CHECKOUT
             </div>
           </div>
