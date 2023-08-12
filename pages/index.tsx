@@ -2,7 +2,7 @@ import type {NextPage} from "next";
 import Image from "next/image";
 
 import Navbar from "../components/Navbar.jsx";
-import Marquee from "../components/Marquee.jsx";
+import Marquee from "../components/Marquee";
 import Product from "../components/Product.jsx";
 import Cart from "../components/Cart.jsx";
 import header from "../public/header.svg";
