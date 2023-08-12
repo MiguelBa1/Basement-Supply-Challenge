@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import Navbar from "../components/Navbar.jsx";
 import Marquee from "../components/Marquee";
-import Product from "../components/Product.jsx";
-import Cart from "../components/Cart.jsx";
+import ProductCard from "../components/ProductCard";
+import CartModal from "../components/CartModal";
 import header from "../public/header.svg";
 import footer from "../public/footer.svg";
 import CartState from "../context/cart/CartState";
@@ -14,16 +14,16 @@ const Home: NextPage = () => {
   return (
     <CartState>
       <header>
-        <Cart />
         <Navbar />
-        <div className="flex justify-center mx-2 my-2">
-          <Image alt="Basement supply" src={header} />
-        </div>
       </header>
+      <CartModal />
+      <div className="flex justify-center mx-2 my-2">
+        <Image alt="Basement supply" src={header} />
+      </div>
       <Marquee />
       <div className="justify-between gap-5 m-4 sm:flex">
         {products.map((prod) => (
-          <Product
+          <ProductCard
             key={prod._id}
             _id={prod._id}
             description={prod.description}
