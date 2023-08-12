@@ -3,6 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        "basement-regular": ["Basement Grotesque Regular", "sans-serif"],
+        "basement-black": ["Basement Grotesque Black", "sans-serif"],
+      },
       gridTemplateRows: {
         cart: "auto auto 1fr auto",
       },

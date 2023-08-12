@@ -26,7 +26,7 @@ const Cart = () => {
   return (
     <>
       {showCart && (
-        <div className="top-0 right-0 z-50 grid min-h-screen p-5 bg-black md:min-h-0 md:border grid-rows-cart md:fixed">
+        <div className="font-basement-black top-0 right-0 z-50 grid min-h-screen p-5 bg-black md:min-h-0 md:border grid-rows-cart md:fixed">
           <div className="flex justify-end mb-2 text-rigth" onClick={showHideCart}>
             → CLOSE
           </div>

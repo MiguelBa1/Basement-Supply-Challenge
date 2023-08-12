@@ -3,7 +3,7 @@ const Marquee = () => {
     <>
       <div className="border-t-2" />
       <div
-        className="relative block py-1 overflow-hidden inset-x-1/2 sm:py-2 md:py-3"
+        className="font-basement-black relative block py-1 overflow-hidden inset-x-1/2 sm:py-2 md:py-3"
         id="marquee-container"
         style={{transform: "translate(-50%, 0)"}}
       >
@@ -12,14 +12,14 @@ const Marquee = () => {
           id="marquee"
         >
           <span className="inline-block h-full min-w-full text-center whitespace-nowrap animate-marquee">
-            A man can’t have enough base­ment swag — A man can’t have enough base­ment swag — A man
-            can’t have enough base­ment swag — A man can’t have enough base­ment swag — A man can’t
-            have enough base­ment swag —
+            A man can’t have enough basement swag — A man can’t have enough basement swag — A man
+            can’t have enough basement swag — A man can’t have enough basement swag — A man can’t
+            have enough basement swag —
           </span>
           <span className="inline-block h-full min-w-full text-center whitespace-nowrap animate-marquee">
-            A man can’t have enough base­ment swag — A man can’t have enough base­ment swag — A man
-            can’t have enough base­ment swag — A man can’t have enough base­ment swag — A man can’t
-            have enough base­ment swag —
+            A man can’t have enough basement swag — A man can’t have enough basement swag — A man
+            can’t have enough basement swag — A man can’t have enough basement swag — A man can’t
+            have enough basement swag —
           </span>
         </div>
       </div>

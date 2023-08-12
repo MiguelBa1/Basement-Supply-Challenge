@@ -8,13 +8,13 @@ const Product = (product) => {
   const {addToCart, cartItems} = useContext(CartContext);
 
   return (
-    <div>
+    <div className="font-basement-black">
       <div
         className="relative border-b-2 bg-gradient-to-b from-final-gray to-initial-black"
         onClick={() => {
-          let valid = cartItems.filter((item) => item._id == product._id);
+          let valid = cartItems.filter((item) => item._id === product._id);
 
-          if (valid.length == 0) addToCart(product);
+          if (valid.length === 0) addToCart(product);
         }}
       >
         <div className="z-0">

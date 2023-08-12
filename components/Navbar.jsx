@@ -6,7 +6,7 @@ import miniLogo from "../public/mini-logo.svg";
 import logo from "../public/logo.svg";
 import hd_4k from "../public/hd-4k.svg";
 
-const Nabvar = () => {
+const Navbar = () => {
   const {cartItems, showHideCart} = useContext(CartContext);
 
   return (
@@ -20,11 +20,11 @@ const Nabvar = () => {
       <div className="hidden md:inline">
         <Image alt="Quality logos" className="hidden" src={hd_4k} />
       </div>
-      <button className="px-5 border-2 rounded-3xl" onClick={() => showHideCart()}>
+      <button className="font-basement-black px-5 border-2 rounded-3xl" onClick={() => showHideCart()}>
         CART(<span>{cartItems.length}</span>)
       </button>
     </nav>
   );
 };
 
-export default Nabvar;
+export default Navbar;
