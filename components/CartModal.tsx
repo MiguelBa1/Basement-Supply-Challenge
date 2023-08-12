@@ -1,13 +1,26 @@
 import {useContext} from "react";
-import formatCurrency from "format-currency";
 
+import {formatCurrency} from "../utils/formatCurrency";
 import CartContext from "../context/cart/CartContext";
 
 import CartItem from "./CartItem";
 
+export interface CartItemType {
+  _id: number;
+  name: string;
+  price: number;
+  size: string;
+  qty: number;
+}
+
+interface CartContextType {
+  showCart: boolean;
+  cartItems: CartItemType[];
+  showHideCart: () => void;
+}
+
 const Cart = () => {
-  const {showCart, cartItems, showHideCart} = useContext(CartContext);
-  let opts = {format: "%s%v", symbol: "$"};
+  const {showCart, cartItems, showHideCart} = useContext<CartContextType>(CartContext);
 
   const handleCheckout = () => {
     cartItems.map((item) => {
@@ -17,7 +30,6 @@ const Cart = () => {
     });
     let total = formatCurrency(
       cartItems.reduce((amount, item) => item.price * item.qty + amount, 0),
-      opts,
     );
 
     console.log(`Total: ${total}`);
@@ -26,7 +38,7 @@ const Cart = () => {
   return (
     <>
       {showCart && (
-        <div className="font-basement-black top-0 right-0 z-50 grid min-h-screen p-5 bg-black md:min-h-0 md:border grid-rows-cart md:fixed">
+        <div className="top-0 right-0 z-50 grid min-h-screen p-5 bg-black font-basement-black md:min-h-0 md:border grid-rows-cart md:fixed">
           <div className="flex justify-end mb-2 text-rigth" onClick={showHideCart}>
             → CLOSE
           </div>
@@ -50,7 +62,6 @@ const Cart = () => {
               <div>
                 {formatCurrency(
                   cartItems.reduce((amount, item) => item.price * item.qty + amount, 0),
-                  opts,
                 )}
               </div>
             </div>
