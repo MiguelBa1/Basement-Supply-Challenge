@@ -13,7 +13,7 @@ const Home: NextPage = () => {
     <>
       <HeaderBar />
       <CartModal />
-      <div className="flex justify-center mx-2 my-2">
+      <div className="flex justify-center m-2">
         <Image alt="Basement supply" src={header} />
       </div>
       <Marquee />
