@@ -6,7 +6,7 @@ import smallLogo from "../public/logo-small.svg";
 import largeLogo from "../public/logo-large.svg";
 import hd_4k from "../public/hd-4k.svg";
 
-const Navbar = () => {
+const HeaderBar = () => {
   const {cartItems, showHideCart} = useContext(CartContext);
 
   return (
@@ -30,4 +30,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default HeaderBar;

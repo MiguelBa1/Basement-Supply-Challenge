@@ -1,6 +1,8 @@
 import type {AppProps} from "next/app";
 import Head from "next/head";
 
+import CartState from "../context/cart/CartState";
+
 import "../css/global.css";
 
 function App({Component, pageProps}: AppProps) {
@@ -29,7 +31,9 @@ function App({Component, pageProps}: AppProps) {
           property="twitter:image"
         />
       </Head>
-      <Component {...pageProps} />
+      <CartState>
+        <Component {...pageProps} />
+      </CartState>
     </>
   );
 }
