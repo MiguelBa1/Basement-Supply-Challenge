@@ -1,11 +1,6 @@
 import Head from "next/head";
 
-interface MetaTagsProps {
-  title: string;
-  description: string;
-  url: string;
-  image: string;
-}
+import {MetaTagsProps} from "../types";
 
 const MetaTags = ({title, description, url, image}: MetaTagsProps) => {
   return (

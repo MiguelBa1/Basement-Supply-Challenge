@@ -1,23 +1,10 @@
 import {useContext} from "react";
 
+import {CartContextType} from "../types";
 import {formatCurrency} from "../utils/formatCurrency";
 import CartContext from "../context/cart/CartContext";
 
 import CartItem from "./CartItem";
-
-export interface CartItemType {
-  _id: number;
-  name: string;
-  price: number;
-  size: string;
-  qty: number;
-}
-
-interface CartContextType {
-  showCart: boolean;
-  cartItems: CartItemType[];
-  showHideCart: () => void;
-}
 
 const Cart = () => {
   const {showCart, cartItems, showHideCart} = useContext<CartContextType>(CartContext);
@@ -39,9 +26,9 @@ const Cart = () => {
     <>
       {showCart && (
         <div className="top-0 right-0 z-50 grid min-h-screen p-5 bg-black font-basement-black md:min-h-0 md:border grid-rows-cart md:fixed">
-          <div className="flex justify-end mb-2 text-rigth" onClick={showHideCart}>
+          <button className="flex justify-end mb-2 text-rigth" onClick={showHideCart}>
             → CLOSE
-          </div>
+          </button>
           <div className="mb-2 text-center text-8xl">
             YOUR <span className="text-stroke-white text-stroke-2 text-fill-transparent">CART</span>
           </div>
@@ -65,12 +52,12 @@ const Cart = () => {
                 )}
               </div>
             </div>
-            <div
-              className="pt-4 text-5xl text-center border-t cursor-pointer md:pt-0 md:border-0 md:text-3xl text-stroke-white text-stroke-2 text-fill-transparent"
+            <button
+              className="pt-4 text-5xl text-center border-t md:pt-0 md:border-0 md:text-3xl text-stroke-white text-stroke-2 text-fill-transparent"
               onClick={handleCheckout}
             >
               CHECKOUT
-            </div>
+            </button>
           </div>
         </div>
       )}

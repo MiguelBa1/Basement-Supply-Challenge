@@ -24,7 +24,7 @@ const HeaderBar = () => {
         className="px-5 border-2 font-basement-black rounded-3xl"
         onClick={() => showHideCart()}
       >
-        CART(<span>{cartItems.length}</span>)
+        CART(<span style={{minWidth: "20px", display: "inline-block"}}>{cartItems.length}</span>)
       </button>
     </nav>
   );
