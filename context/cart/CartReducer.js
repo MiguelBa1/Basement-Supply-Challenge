@@ -4,6 +4,7 @@ import {
   REMOVE_ITEM,
   CHANGE_CART_QTY,
   CHANGE_CART_SIZE,
+  LOAD_CART_FROM_STORAGE,
 } from "../Types";
 
 const CartReducer = (state, action) => {
@@ -40,6 +41,12 @@ const CartReducer = (state, action) => {
         cartItems: state.cartItems.filter((c) =>
           c._id === action.payload._id ? (c.size = action.payload.size) : c.size,
         ),
+      };
+    }
+    case LOAD_CART_FROM_STORAGE: {
+      return {
+        ...state,
+        cartItems: action.payload,
       };
     }
     default:
