@@ -3,7 +3,7 @@ import products from "../product/mock.json";
 
 const ProductList = () => {
   return (
-    <div className="justify-between m-4 sm:gap-5 sm:flex">
+    <div className="m-4 sm:justify-evenly sm:gap-5 sm:flex">
       {products.map((prod) => (
         <ProductCard
           key={prod._id}

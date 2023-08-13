@@ -35,7 +35,7 @@ const Cart = () => {
           className="fixed inset-0 z-50 flex items-center justify-center transition-all duration-500 bg-black bg-opacity-50"
           onClick={handleBackgroundClick}
         >
-          <div className="top-0 right-0 grid min-h-screen gap-2 p-5 bg-black font-basement-black md:min-h-0 md:border grid-rows-cart md:fixed">
+          <div className="top-0 right-0 grid h-screen gap-2 p-5 overflow-auto bg-black font-basement-black md:h-3/4 md:border grid-rows-cart md:fixed">
             <div className="text-right" onClick={showHideCart}>
               → CLOSE
             </div>
@@ -47,7 +47,7 @@ const Cart = () => {
               {cartItems.length === 0 ? (
                 <h4>Cart is Empty</h4>
               ) : (
-                <ul className="overflow-y-auto max-h-80">
+                <ul>
                   {cartItems.map((item) => (
                     <CartItem key={item._id} item={item} />
                   ))}
@@ -63,12 +63,12 @@ const Cart = () => {
                   )}
                 </div>
               </div>
-              <div
-                className="pt-4 text-5xl text-center border-t cursor-pointer md:pt-0 md:border-0 md:text-3xl text-stroke-white text-stroke-2 text-fill-transparent"
+              <button
+                className="pt-4 text-5xl text-center text-black transition-all border-t duration-50 md:pt-0 md:border-0 md:text-3xl text-stroke-white text-stroke-2 hover:text-white hover:text-stroke-none"
                 onClick={handleCheckout}
               >
                 CHECKOUT
-              </div>
+              </button>
             </div>
           </div>
         </div>
