@@ -11,7 +11,7 @@ module.exports = {
         cart: "auto auto 1fr auto",
       },
       gridTemplateColumns: {
-        bottomCart: "1fr auto",
+        "bottom-cart": "1fr auto",
       },
       colors: {
         "initial-black": "#1D1D1D",
