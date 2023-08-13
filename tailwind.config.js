@@ -3,20 +3,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        "basement-regular": ["Basement Grotesque Regular", "sans-serif"],
+        "basement-black": ["Basement Grotesque Black", "sans-serif"],
+      },
       gridTemplateRows: {
         cart: "auto auto 1fr auto",
       },
       gridTemplateColumns: {
-        bottomCart: "1fr auto",
-      },
-      animation: {
-        marquee: "marquee 20s linear infinite",
-      },
-      keyframes: {
-        marquee: {
-          "0%": {transform: "translateX(0%)"},
-          "100%": {transform: "translateX(-100%)"},
-        },
+        "bottom-cart": "1fr auto",
       },
       colors: {
         "initial-black": "#1D1D1D",

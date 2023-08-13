@@ -1,0 +1,18 @@
+@keyframes marquee {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+.animateMarquee {
+  animation: marquee 10s linear infinite;
+}
+
+@media screen and (max-width: 768px) {
+  .animateMarquee {
+    animation: marquee 8s linear infinite;
+  }
+}

@@ -1,13 +1,12 @@
 import Image from "next/image";
 import {useContext} from "react";
-import formatCurrency from "format-currency";
 
+import {formatCurrency} from "../utils/formatCurrency";
 import CartContext from "../context/cart/CartContext";
 
 const CartItem = ({item}) => {
   const {changeQty, changeSize} = useContext(CartContext);
   const sizes = ["S", "M", "L", "XL"];
-  let opts = {format: "%s%v", symbol: "$"};
 
   const handleIncrement = () => changeQty({_id: item._id, qty: item.qty + 1});
 
@@ -50,7 +49,7 @@ const CartItem = ({item}) => {
             })}
           </span>
         </div>
-        <div className="text-sm md:text-lg">{formatCurrency(`${item.price}`, opts)}</div>
+        <div className="text-sm md:text-lg">{formatCurrency(item.price)}</div>
       </div>
     </li>
   );

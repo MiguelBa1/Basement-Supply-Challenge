@@ -1,35 +1,27 @@
 import type {AppProps} from "next/app";
-import Head from "next/head";
+import {useRouter} from "next/router";
 
 import "../css/global.css";
+import MetaTags from "../components/MetaTags";
+import CartState from "../context/cart/CartState";
 
 function App({Component, pageProps}: AppProps) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  const router = useRouter();
+  const url = `${baseUrl}${router.asPath}`;
+
   return (
     <>
-      <Head>
-        {/* <!-- Primary Meta Tags --> */}
-        <title>Basement Supply</title>
-        <meta content="Basement Supply" name="title" />
-        <meta content="Coding challenge for basement.studio." name="description" />
-
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta content="website" property="og:type" />
-        <meta content="https://prueba-nextjs.miguelbarrera4.repl.co/" property="og:url" />
-        <meta content="Basement Supply" property="og:title" />
-        <meta content="Coding challenge for basement.studio." property="og:description" />
-        <meta content="https://prueba-nextjs.miguelbarrera4.repl.co/og.png" property="og:image" />
-
-        {/* <!-- Twitter --> */}
-        <meta content="summary_large_image" property="twitter:card" />
-        <meta content="https://prueba-nextjs.miguelbarrera4.repl.co/" property="twitter:url" />
-        <meta content="Basement Supply" property="twitter:title" />
-        <meta content="Coding challenge for basement.studio." property="twitter:description" />
-        <meta
-          content="https://prueba-nextjs.miguelbarrera4.repl.co/og.png"
-          property="twitter:image"
-        />
-      </Head>
-      <Component {...pageProps} />
+      <MetaTags
+        description="Coding challenge for basement.studio"
+        image={`${url}/og.png`}
+        title="Basement Supply"
+        url={url}
+      />
+      <CartState>
+        <Component {...pageProps} />
+      </CartState>
     </>
   );
 }
