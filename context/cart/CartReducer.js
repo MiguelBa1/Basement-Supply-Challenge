@@ -16,6 +16,12 @@ const CartReducer = (state, action) => {
       };
     }
     case ADD_TO_CART: {
+      const isProductInCart = state.cartItems.some((item) => item._id === action.payload._id);
+
+      if (isProductInCart) {
+        return state;
+      }
+
       return {
         ...state,
         cartItems: [...state.cartItems, {...action.payload, qty: 1, size: "M"}],
