@@ -1,4 +1,11 @@
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, CHANGE_CART_QTY, CHANGE_CART_SIZE } from "../Types";
+import {
+  SHOW_HIDE_CART,
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  CHANGE_CART_QTY,
+  CHANGE_CART_SIZE,
+  LOAD_CART_FROM_STORAGE,
+} from "../Types";
 
 const CartReducer = (state, action) => {
   switch (action.type) {
@@ -9,6 +16,12 @@ const CartReducer = (state, action) => {
       };
     }
     case ADD_TO_CART: {
+      const isProductInCart = state.cartItems.some((item) => item._id === action.payload._id);
+
+      if (isProductInCart) {
+        return state;
+      }
+
       return {
         ...state,
         cartItems: [...state.cartItems, {...action.payload, qty: 1, size: "M"}],
@@ -17,16 +30,14 @@ const CartReducer = (state, action) => {
     case REMOVE_ITEM: {
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item._id !== action.payload
-        ),
+        cartItems: state.cartItems.filter((item) => item._id !== action.payload),
       };
     }
     case CHANGE_CART_QTY: {
       return {
         ...state,
         cartItems: state.cartItems.filter((c) =>
-          c._id === action.payload._id ? (c.qty = action.payload.qty) : c.qty
+          c._id === action.payload._id ? (c.qty = action.payload.qty) : c.qty,
         ),
       };
     }
@@ -34,8 +45,14 @@ const CartReducer = (state, action) => {
       return {
         ...state,
         cartItems: state.cartItems.filter((c) =>
-          c._id === action.payload._id ? (c.size = action.payload.size) : c.size
+          c._id === action.payload._id ? (c.size = action.payload.size) : c.size,
         ),
+      };
+    }
+    case LOAD_CART_FROM_STORAGE: {
+      return {
+        ...state,
+        cartItems: action.payload,
       };
     }
     default:
