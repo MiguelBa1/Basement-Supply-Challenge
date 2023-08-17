@@ -8,7 +8,6 @@ const ProductList = () => {
         <ProductCard
           key={prod._id}
           _id={prod._id}
-          description={prod.description}
           img={prod.img}
           name={prod.name}
           price={prod.price}
