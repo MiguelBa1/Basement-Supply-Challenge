@@ -36,8 +36,8 @@ const Cart = () => {
           onClick={handleBackgroundClick}
         >
           <div className="top-0 right-0 grid h-screen gap-2 p-5 overflow-auto bg-black font-basement-black md:h-3/4 md:border grid-rows-cart md:fixed">
-            <div className="text-right" onClick={showHideCart}>
-              → CLOSE
+            <div className="text-right">
+              <button onClick={showHideCart}>→ CLOSE</button>
             </div>
             <div className="text-center text-8xl">
               YOUR{" "}
