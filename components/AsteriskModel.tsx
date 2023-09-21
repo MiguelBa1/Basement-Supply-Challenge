@@ -31,9 +31,21 @@ type AsteriskModelProps = {
 const AsteriskModel: React.FC<AsteriskModelProps> = ({initialPosition}) => {
   const gltf = useLoader(GLTFLoader, "/asterisk.glb");
   const ref = useRef(new THREE.Group());
+
+  const randomVelocity = () => {
+    const speed = 0.008;
+    let v = (Math.random() - 0.5) * 2 * speed;
+
+    if (Math.abs(v) < 0.002) {
+      v += (v > 0 ? 1 : -1) * 0.002;
+    }
+
+    return v;
+  };
+
   const velocity = useRef({
-    x: 0.008,
-    y: 0.008,
+    x: randomVelocity(),
+    y: randomVelocity(),
   });
 
   useEffect(() => {
