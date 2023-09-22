@@ -6,8 +6,16 @@ import MetaTags from "../components/MetaTags";
 import CartState from "../context/cart/CartState";
 
 function App({Component, pageProps}: AppProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const getBaseUrl = () => {
+    if (process.env.NODE_ENV === "development") {
+      return process.env.NEXT_PUBLIC_DEV_BASE_URL;
+    }
 
+    // For production and preview deploys
+    return `https://${process.env.VERCEL_URL}`;
+  };
+
+  const baseUrl = getBaseUrl();
   const router = useRouter();
   const url = `${baseUrl}${router.asPath}`;
 
