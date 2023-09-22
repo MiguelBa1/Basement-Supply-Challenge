@@ -18,7 +18,16 @@ const CartContent: React.FC<CartContentProps> = ({cartItems}) => {
   return (
     <ul>
       {cartItems.map((item) => (
-        <CartItem key={item._id} item={item} />
+        <CartItem
+          key={item._id}
+          _id={item._id}
+          description={item.description}
+          img={item.img}
+          name={item.name}
+          price={item.price}
+          qty={item.qty}
+          size={item.size}
+        />
       ))}
     </ul>
   );
