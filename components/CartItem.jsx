@@ -20,7 +20,7 @@ const CartItem = ({item}) => {
         className="relative bg-gradient-to-b from-final-gray to-initial-black"
         style={{minWidth: "100px", height: "130px"}}
       >
-        <Image layout="fill" src={item.img} />
+        <Image alt={item.name} layout="fill" src={item.img} />
       </div>
       <div className="flex flex-col justify-between pl-3 md:text-xl">
         <div>{item.name}</div>
